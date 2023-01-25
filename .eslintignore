@@ -1,0 +1,12 @@
+# Dependencies
+node_modules
+
+# Production
+build
+dist
+bundles
+
+# Generated files
+.docusaurus
+.cache-loader
+coverage
