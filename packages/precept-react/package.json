@@ -1,0 +1,46 @@
+{
+    "name": "precept-react",
+    "version": "1.0.0",
+    "description": "A library of React components founded built on Precept",
+    "main": "index.js",
+    "scripts": {
+        "build": "run-s clean build:*",
+        "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir dist/lib",
+        "build:es": "cross-env BABEL_ENV=es babel src --out-dir dist/es",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook"
+    },
+    "keywords": [],
+    "author": "Mark McCann <marksmccann@gmail.com>",
+    "license": "MIT",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/marksmccann/precept"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    },
+    "dependencies": {
+        "uncontrollable": "^7.2.1",
+        "nanoid": "^4.0.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.20.12",
+        "@storybook/addon-actions": "^6.5.16",
+        "@storybook/addon-essentials": "^6.5.16",
+        "@storybook/addon-interactions": "^6.5.16",
+        "@storybook/addon-links": "^6.5.16",
+        "@storybook/builder-webpack4": "^6.5.16",
+        "@storybook/manager-webpack4": "^6.5.16",
+        "@storybook/react": "^6.5.16",
+        "@storybook/testing-library": "^0.0.13",
+        "babel-loader": "^8.3.0",
+        "cross-env": "^7.0.3",
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^4.1.0"
+    }
+}

@@ -1,1 +1,1 @@
-export { default as tabs } from './tabs';
+export * as getTabsSchema from './getTabsSchema';

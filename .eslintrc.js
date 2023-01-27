@@ -18,13 +18,15 @@ module.exports = {
     },
     plugins: ['react', 'jest', 'jest-dom'],
     rules: {
+        'arrow-body-style': 'off',
         'jest/no-hooks': 'off',
         'jest/prefer-expect-assertions': 'off',
         'jest/max-expects': 'off',
+        'react/jsx-props-no-spreading': 'off',
     },
     overrides: [
         {
-            files: ['jest-setup.js', 'rollup.config.js'],
+            files: ['jest-setup.js', 'rollup.config.js', '__tests__/**/*'],
             rules: {
                 'import/no-extraneous-dependencies': 'off',
             },

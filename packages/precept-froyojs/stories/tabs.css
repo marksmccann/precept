@@ -1,0 +1,3 @@
+.tabs__panel[data-active='false'] {
+    display: none;
+}

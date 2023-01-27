@@ -7,7 +7,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'Precept',
-    tagline: 'A library of resources for building user interfaces in a regulated and consistent manner',
+    tagline:
+        'A library of resources for building user interfaces in a regulated and consistent manner',
     url: 'https://marksmccann.github.io',
     baseUrl: '/precept/',
     onBrokenLinks: 'throw',

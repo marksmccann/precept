@@ -164,7 +164,7 @@ module.exports = {
     // ],
 
     // The regexp pattern or array of patterns that Jest uses to detect test files
-    // testRegex: [],
+    testRegex: ['__tests__/.*.test.jsx?'],
 
     // This option allows the use of a custom results processor
     // testResultsProcessor: undefined,
@@ -177,7 +177,7 @@ module.exports = {
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
     transformIgnorePatterns: [
-        '/node_modules/(?!@babel/runtime|nanoid)',
+        '/node_modules/(?!@babel/runtime|nanoid|froyojs)',
         // "\\.pnp\\.[^\\/]+$"
     ],
 

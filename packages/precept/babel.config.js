@@ -8,9 +8,5 @@ module.exports = {
             presets: [['@babel/preset-env', { modules: 'cjs' }]],
             plugins: ['@babel/plugin-transform-runtime'],
         },
-        umd: {
-            presets: ['@babel/preset-env'],
-            plugins: [],
-        },
     },
 };
