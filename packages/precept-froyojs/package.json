@@ -1,7 +1,7 @@
 {
     "name": "precept-froyojs",
     "version": "0.0.0",
-    "description": "A library of Froyo components founded built on Precept",
+    "description": "Precept components built with Froyo",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
     "scripts": {
@@ -9,9 +9,7 @@
         "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir dist/lib",
         "build:es": "cross-env BABEL_ENV=es babel src --out-dir dist/es",
         "build:umd": "cross-env BABEL_ENV=umd rollup -c --bundleConfigAsCjs",
-        "clean": "rimraf dist",
-        "storybook": "start-storybook -p 6006",
-        "build-storybook": "build-storybook"
+        "clean": "rimraf dist"
     },
     "author": "Mark McCann <marksmccann@gmail.com>",
     "license": "MIT",
@@ -25,7 +23,7 @@
     "dependencies": {
         "@babel/runtime": "^7.20.7",
         "delegate": "^3.2.0",
-        "froyojs": "^0.2.0",
+        "froyojs": "^0.4.1",
         "nanoid": "^4.0.0",
         "precept": "*",
         "prop-types": "^15.8.1"
@@ -38,14 +36,6 @@
         "@rollup/plugin-commonjs": "^24.0.0",
         "@rollup/plugin-node-resolve": "^15.0.1",
         "@rollup/plugin-terser": "^0.3.0",
-        "@storybook/addon-actions": "^6.5.15",
-        "@storybook/addon-essentials": "^6.5.15",
-        "@storybook/addon-interactions": "^6.5.15",
-        "@storybook/addon-links": "^6.5.15",
-        "@storybook/builder-webpack4": "^6.5.15",
-        "@storybook/html": "^6.5.15",
-        "@storybook/manager-webpack4": "^6.5.15",
-        "@storybook/testing-library": "^0.0.13",
         "babel-loader": "^8.3.0",
         "cross-env": "^7.0.3",
         "npm-run-all": "^4.1.5",

@@ -11,28 +11,21 @@ describe('froyojs', () => {
         render(data) {
             const { tabs, panels, options } = data;
 
+            // prettier-ignore
             return render(
                 `
                     <div data-tabs>
                         <div data-tablist>
-                            ${tabs
-                                .map(
-                                    (tab) => `
+                            ${tabs.map((tab) => `
                                 <button data-tab>${tab}</button>
-                            `
-                                )
-                                .join('')}
+                            `).join('')}
                         </div>
-                        ${panels
-                            .map(
-                                (panel) => `
+                        ${panels.map((panel) => `
                             <div data-panel>${panel}</div>
-                        `
-                            )
-                            .join('')}
+                        `).join('')}
                     </div>
                 `,
-                (root) => new Tabs(root, options)
+                () => new Tabs(['data-tabs'], options)
             );
         },
     });

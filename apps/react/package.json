@@ -1,0 +1,33 @@
+{
+    "name": "@apps/react",
+    "version": "0.0.0",
+    "description": "A React Storybook app for Precept components",
+    "main": "index.js",
+    "private": true,
+    "scripts": {
+        "clean": "rimraf dist",
+        "build": "build-storybook",
+        "start": "start-storybook -p 6006"
+    },
+    "keywords": [],
+    "author": "Mark McCann <marksmccann@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/marksmccann/precept"
+    },
+    "dependencies": {
+        "@babel/core": "^7.20.12",
+        "@storybook/addon-actions": "^6.5.16",
+        "@storybook/addon-essentials": "^6.5.16",
+        "@storybook/addon-interactions": "^6.5.16",
+        "@storybook/addon-links": "^6.5.16",
+        "@storybook/builder-webpack4": "^6.5.16",
+        "@storybook/manager-webpack4": "^6.5.16",
+        "@storybook/react": "^6.5.16",
+        "@storybook/testing-library": "^0.0.13",
+        "precept-react": "*",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
+    }
+}

@@ -1,12 +1,7 @@
 import PropTypes from 'prop-types';
 import getTabsSchema from 'precept/src/getTabsSchema';
 import { nanoid } from 'nanoid';
-import {
-    Component,
-    querySelectorAll,
-    setAttributes,
-    addEventListener,
-} from 'froyojs';
+import { Component, setAttributes, addEventListener } from 'froyojs';
 
 function getSchema() {
     return getTabsSchema({
@@ -38,15 +33,19 @@ class Tabs extends Component {
         };
     }
 
-    initialize() {
+    setup() {
         const { rootElement } = this;
 
         this.id = nanoid(8);
 
         this.elements = {
             tablist: rootElement.querySelector('[data-tablist]'),
-            tabs: querySelectorAll(rootElement, '[data-tab]'),
-            panels: querySelectorAll(rootElement, '[data-panel]'),
+            tabs: Array.from(
+                rootElement.querySelectorAll(':scope > * > [data-tab]')
+            ),
+            panels: Array.from(
+                rootElement.querySelectorAll(':scope > [data-panel]')
+            ),
         };
 
         this.listeners = {

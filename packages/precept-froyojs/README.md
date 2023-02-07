@@ -1,6 +1,6 @@
 # Precept Froyo
 
-A library of Froyo components founded built on Precept
+Precept components built with Froyo.
 
 <p>
     <a href="https://www.npmjs.com/package/precept-froyo"><img src="https://img.shields.io/npm/v/precept-froyo.svg?style=flat" alt="npm version"></a>

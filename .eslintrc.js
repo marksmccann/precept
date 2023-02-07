@@ -26,7 +26,12 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['jest-setup.js', 'rollup.config.js', '__tests__/**/*'],
+            files: [
+                'jest-setup.js',
+                'rollup.config.js',
+                '__tests__/**/*',
+                'packages/**/*',
+            ],
             rules: {
                 'import/no-extraneous-dependencies': 'off',
             },
