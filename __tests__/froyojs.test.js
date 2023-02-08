@@ -25,7 +25,7 @@ describe('froyojs', () => {
                         `).join('')}
                     </div>
                 `,
-                () => new Tabs(['data-tabs'], options)
+                () => new Tabs('[data-tabs]', options)
             );
         },
     });
