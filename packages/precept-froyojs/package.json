@@ -26,10 +26,12 @@
         "type": "git",
         "url": "https://github.com/marksmccann/precept"
     },
+    "peerDependencies": {
+        "froyojs": "^0.5.2"
+    },
     "dependencies": {
         "@babel/runtime": "^7.20.7",
         "delegate": "^3.2.0",
-        "froyojs": "^0.4.1",
         "nanoid": "^4.0.0",
         "precept": "^0.1.0-alpha.0",
         "prop-types": "^15.8.1"
