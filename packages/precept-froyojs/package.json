@@ -1,6 +1,6 @@
 {
     "name": "precept-froyojs",
-    "version": "0.0.0",
+    "version": "0.1.0-alpha.0",
     "description": "Precept components built with Froyo",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
@@ -31,7 +31,7 @@
         "delegate": "^3.2.0",
         "froyojs": "^0.4.1",
         "nanoid": "^4.0.0",
-        "precept": "*",
+        "precept": "^0.1.0-alpha.0",
         "prop-types": "^15.8.1"
     },
     "devDependencies": {
