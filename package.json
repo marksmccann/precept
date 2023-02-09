@@ -4,6 +4,7 @@
         "build:apps": "lerna run build --scope=@apps/*",
         "build:packages": "lerna run build --scope=precept --scope=precept-*",
         "clean": "lerna run clean",
+        "clean:nm": "lerna clean",
         "commit": "cz",
         "format": "prettier --write .",
         "lint": "eslint .",
