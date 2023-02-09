@@ -1,8 +1,7 @@
 module.exports = {
-    presets: [['@babel/preset-env', { modules: false }]],
     env: {
         es: {
-            presets: ['@babel/preset-env'],
+            presets: [['@babel/preset-env', { modules: false }]],
             plugins: ['@babel/plugin-transform-runtime'],
         },
         cjs: {
@@ -11,7 +10,6 @@ module.exports = {
         },
         umd: {
             presets: ['@babel/preset-env'],
-            plugins: [],
         },
     },
 };

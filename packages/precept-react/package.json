@@ -1,17 +1,23 @@
 {
     "name": "precept-react",
     "version": "0.0.0",
-    "description": "Precept component built with React",
+    "description": "Precept components built with React",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
     "scripts": {
         "build": "run-s clean build:*",
         "build:cjs": "cross-env BABEL_ENV=cjs babel src --out-dir dist/lib",
-        "build:es": "cross-env BABEL_ENV=es babel src --out-dir dist/es"
+        "build:es": "cross-env BABEL_ENV=es babel src --out-dir dist/es",
+        "clean": "rimraf dist"
     },
-    "keywords": [],
+    "keywords": [
+        "react",
+        "precept",
+        "components"
+    ],
     "author": "Mark McCann <marksmccann@gmail.com>",
     "license": "MIT",
+    "sideEffects": false,
     "files": [
         "dist"
     ],
@@ -24,12 +30,13 @@
         "react-dom": "^17.0.2"
     },
     "dependencies": {
-        "uncontrollable": "^7.2.1",
-        "nanoid": "^4.0.0"
+        "nanoid": "^4.0.0",
+        "uncontrollable": "^7.2.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.20.7",
         "@babel/core": "^7.20.12",
+        "@babel/preset-react": "^7.18.6",
         "babel-loader": "^8.3.0",
         "cross-env": "^7.0.3",
         "npm-run-all": "^4.1.5",

@@ -11,8 +11,14 @@
         "build:umd": "cross-env BABEL_ENV=umd rollup -c --bundleConfigAsCjs",
         "clean": "rimraf dist"
     },
+    "keywords": [
+        "froyojs",
+        "precept",
+        "components"
+    ],
     "author": "Mark McCann <marksmccann@gmail.com>",
     "license": "MIT",
+    "sideEffects": false,
     "files": [
         "dist"
     ],

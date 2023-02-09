@@ -1,7 +1,7 @@
 {
     "name": "precept",
     "version": "0.0.0",
-    "description": "A library of resources for building user interfaces in a regulated and consistent manner.",
+    "description": "The universal UI component library",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
     "scripts": {
@@ -10,8 +10,14 @@
         "build:es": "cross-env BABEL_ENV=es babel src --out-dir dist/es",
         "clean": "rimraf dist"
     },
+    "keywords": [
+        "components",
+        "user interface",
+        "ui"
+    ],
     "author": "Mark McCann <marksmccann@gmail.com>",
     "license": "MIT",
+    "sideEffects": false,
     "files": [
         "dist"
     ],

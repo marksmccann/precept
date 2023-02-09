@@ -9,10 +9,6 @@ import isElementType from './helpers/isElementType';
 import mapChildren from './helpers/mapChildren';
 import countChildren from './helpers/countChildren';
 
-import TabsTablist from './TabsTablist';
-import TabsTab from './TabsTab';
-import TabsPanel from './TabsPanel';
-
 const propTypes = {
     children: PropTypes.node,
     manual: PropTypes.bool,
@@ -27,7 +23,19 @@ const defaultProps = {
     onChange: null,
 };
 
-const Tabs = forwardRef((props, ref) => {
+const TabsPanel = forwardRef(function TabsPanel(props, ref) {
+    return <div {...props} ref={ref} />;
+});
+
+const TabsTab = forwardRef(function TabsTab(props, ref) {
+    return <button {...props} ref={ref} />;
+});
+
+const TabsTablist = forwardRef(function TabsTablist(props, ref) {
+    return <div {...props} ref={ref} />;
+});
+
+const Tabs = forwardRef(function Tabs(props, ref) {
     const { children, manual, activeTab, onChange, ...restOfProps } = props;
     const { current: uniqueId } = useRef(nanoid(8));
     const tabElements = useRef([]);

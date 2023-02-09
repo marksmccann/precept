@@ -1,6 +1,6 @@
 # Precept React
 
-Precept component built with React.
+Precept components built with React.
 
 <p>
     <a href="https://www.npmjs.com/package/precept-react"><img src="https://img.shields.io/npm/v/precept-react.svg?style=flat" alt="npm version"></a>

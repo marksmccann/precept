@@ -1,6 +1,6 @@
 # Precept
 
-A library of resources for building user interfaces in a regulated and consistent manner.
+A universal library of resources for building user interface components.
 
 <p>
     <a href="https://www.npmjs.com/package/precept"><img src="https://img.shields.io/npm/v/precept.svg?style=flat" alt="npm version"></a>

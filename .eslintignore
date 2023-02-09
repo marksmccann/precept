@@ -10,3 +10,4 @@ bundles
 .docusaurus
 .cache-loader
 coverage
+.angular

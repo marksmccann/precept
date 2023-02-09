@@ -7,9 +7,9 @@ import { babel } from '@rollup/plugin-babel';
 
 export default [
     {
-        input: 'src/index.js',
+        input: 'bundle.js',
         output: {
-            file: '../../bundles/precept.js',
+            file: '../../bundles/precept-froyo.js',
             format: 'umd',
             name: 'precept',
             globals: { crypto: 'crypto' },
@@ -21,9 +21,9 @@ export default [
         ],
     },
     {
-        input: 'src/index.js',
+        input: 'bundle.js',
         output: {
-            file: '../../bundles/precept.min.js',
+            file: '../../bundles/precept-froyo.min.js',
             format: 'umd',
             name: 'precept',
             globals: { crypto: 'crypto' },

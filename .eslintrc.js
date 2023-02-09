@@ -37,12 +37,13 @@ module.exports = {
             },
         },
         {
-            files: ['packages/**/*'],
+            files: ['packages/precept-froyojs/**/*'],
             rules: {
                 'react/require-render-return': 'off',
                 'react/prefer-stateless-function': 'off',
                 'react/no-unused-class-component-methods': 'off',
                 'react/sort-comp': 'off',
+                'jest/require-hook': 'off',
             },
         },
     ],
