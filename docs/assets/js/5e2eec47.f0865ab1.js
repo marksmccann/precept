@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_apps_docs=self.webpackChunk_apps_docs||[]).push([[802],{8867:e=>{e.exports=JSON.parse('{"permalink":"/precept/blog/tags/hello","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
