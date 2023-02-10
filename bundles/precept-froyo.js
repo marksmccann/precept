@@ -335,7 +335,7 @@
   }
 
   var printWarning = function printWarning() {};
-  if (process.env.NODE_ENV !== 'production') {
+  {
     var ReactPropTypesSecret = requireReactPropTypesSecret();
     var loggedTypeFailures = {};
     var has = requireHas();
@@ -365,7 +365,7 @@
    * @private
    */
   function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-    if (process.env.NODE_ENV !== 'production') {
+    {
       for (var typeSpecName in typeSpecs) {
         if (has(typeSpecs, typeSpecName)) {
           var error;
@@ -405,7 +405,7 @@
    * @private
    */
   checkPropTypes.resetWarningCache = function () {
-    if (process.env.NODE_ENV !== 'production') {
+    {
       loggedTypeFailures = {};
     }
   };
@@ -641,7 +641,7 @@
           });
 
           // validate data types of state in non-production
-          if (process.env.NODE_ENV !== 'production') {
+          {
             checkPropTypes$1(stateTypes, nextState, 'state', this.displayName);
           }
 
@@ -795,128 +795,13 @@
     set exports(v){ reactIsExports = v; },
   };
 
-  var reactIs_production_min = {};
-
-  var hasRequiredReactIs_production_min;
-  function requireReactIs_production_min() {
-    if (hasRequiredReactIs_production_min) return reactIs_production_min;
-    hasRequiredReactIs_production_min = 1;
-    var b = "function" === typeof Symbol && Symbol["for"],
-      c = b ? Symbol["for"]("react.element") : 60103,
-      d = b ? Symbol["for"]("react.portal") : 60106,
-      e = b ? Symbol["for"]("react.fragment") : 60107,
-      f = b ? Symbol["for"]("react.strict_mode") : 60108,
-      g = b ? Symbol["for"]("react.profiler") : 60114,
-      h = b ? Symbol["for"]("react.provider") : 60109,
-      k = b ? Symbol["for"]("react.context") : 60110,
-      l = b ? Symbol["for"]("react.async_mode") : 60111,
-      m = b ? Symbol["for"]("react.concurrent_mode") : 60111,
-      n = b ? Symbol["for"]("react.forward_ref") : 60112,
-      p = b ? Symbol["for"]("react.suspense") : 60113,
-      q = b ? Symbol["for"]("react.suspense_list") : 60120,
-      r = b ? Symbol["for"]("react.memo") : 60115,
-      t = b ? Symbol["for"]("react.lazy") : 60116,
-      v = b ? Symbol["for"]("react.block") : 60121,
-      w = b ? Symbol["for"]("react.fundamental") : 60117,
-      x = b ? Symbol["for"]("react.responder") : 60118,
-      y = b ? Symbol["for"]("react.scope") : 60119;
-    function z(a) {
-      if ("object" === _typeof(a) && null !== a) {
-        var u = a.$$typeof;
-        switch (u) {
-          case c:
-            switch (a = a.type, a) {
-              case l:
-              case m:
-              case e:
-              case g:
-              case f:
-              case p:
-                return a;
-              default:
-                switch (a = a && a.$$typeof, a) {
-                  case k:
-                  case n:
-                  case t:
-                  case r:
-                  case h:
-                    return a;
-                  default:
-                    return u;
-                }
-            }
-          case d:
-            return u;
-        }
-      }
-    }
-    function A(a) {
-      return z(a) === m;
-    }
-    reactIs_production_min.AsyncMode = l;
-    reactIs_production_min.ConcurrentMode = m;
-    reactIs_production_min.ContextConsumer = k;
-    reactIs_production_min.ContextProvider = h;
-    reactIs_production_min.Element = c;
-    reactIs_production_min.ForwardRef = n;
-    reactIs_production_min.Fragment = e;
-    reactIs_production_min.Lazy = t;
-    reactIs_production_min.Memo = r;
-    reactIs_production_min.Portal = d;
-    reactIs_production_min.Profiler = g;
-    reactIs_production_min.StrictMode = f;
-    reactIs_production_min.Suspense = p;
-    reactIs_production_min.isAsyncMode = function (a) {
-      return A(a) || z(a) === l;
-    };
-    reactIs_production_min.isConcurrentMode = A;
-    reactIs_production_min.isContextConsumer = function (a) {
-      return z(a) === k;
-    };
-    reactIs_production_min.isContextProvider = function (a) {
-      return z(a) === h;
-    };
-    reactIs_production_min.isElement = function (a) {
-      return "object" === _typeof(a) && null !== a && a.$$typeof === c;
-    };
-    reactIs_production_min.isForwardRef = function (a) {
-      return z(a) === n;
-    };
-    reactIs_production_min.isFragment = function (a) {
-      return z(a) === e;
-    };
-    reactIs_production_min.isLazy = function (a) {
-      return z(a) === t;
-    };
-    reactIs_production_min.isMemo = function (a) {
-      return z(a) === r;
-    };
-    reactIs_production_min.isPortal = function (a) {
-      return z(a) === d;
-    };
-    reactIs_production_min.isProfiler = function (a) {
-      return z(a) === g;
-    };
-    reactIs_production_min.isStrictMode = function (a) {
-      return z(a) === f;
-    };
-    reactIs_production_min.isSuspense = function (a) {
-      return z(a) === p;
-    };
-    reactIs_production_min.isValidElementType = function (a) {
-      return "string" === typeof a || "function" === typeof a || a === e || a === m || a === g || a === f || a === p || a === q || "object" === _typeof(a) && null !== a && (a.$$typeof === t || a.$$typeof === r || a.$$typeof === h || a.$$typeof === k || a.$$typeof === n || a.$$typeof === w || a.$$typeof === x || a.$$typeof === y || a.$$typeof === v);
-    };
-    reactIs_production_min.typeOf = z;
-    return reactIs_production_min;
-  }
-
   var reactIs_development = {};
 
   var hasRequiredReactIs_development;
   function requireReactIs_development() {
     if (hasRequiredReactIs_development) return reactIs_development;
     hasRequiredReactIs_development = 1;
-    if (process.env.NODE_ENV !== "production") {
+    {
       (function () {
 
         // The Symbol used to tag the ReactElement-like types. If there is no native Symbol
@@ -1081,9 +966,7 @@
     hasRequiredReactIs = 1;
     (function (module) {
 
-      if (process.env.NODE_ENV === 'production') {
-        module.exports = requireReactIs_production_min();
-      } else {
+      {
         module.exports = requireReactIs_development();
       }
     })(reactIs);
@@ -1187,7 +1070,7 @@
     var has = requireHas();
     var checkPropTypes = checkPropTypes_1;
     var printWarning = function printWarning() {};
-    if (process.env.NODE_ENV !== 'production') {
+    {
       printWarning = function printWarning(text) {
         var message = 'Warning: ' + text;
         if (typeof console !== 'undefined') {
@@ -1336,7 +1219,7 @@
       // Make `instanceof Error` still work for returned errors.
       PropTypeError.prototype = Error.prototype;
       function createChainableTypeChecker(validate) {
-        if (process.env.NODE_ENV !== 'production') {
+        {
           var manualPropTypeCallCache = {};
           var manualPropTypeWarningCount = 0;
         }
@@ -1349,7 +1232,7 @@
               var err = new Error('Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use `PropTypes.checkPropTypes()` to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
               err.name = 'Invariant Violation';
               throw err;
-            } else if (process.env.NODE_ENV !== 'production' && typeof console !== 'undefined') {
+            } else if (typeof console !== 'undefined') {
               // Old behavior for people using React.PropTypes
               var cacheKey = componentName + ':' + propName;
               if (!manualPropTypeCallCache[cacheKey] &&
@@ -1452,7 +1335,7 @@
       }
       function createEnumTypeChecker(expectedValues) {
         if (!Array.isArray(expectedValues)) {
-          if (process.env.NODE_ENV !== 'production') {
+          {
             if (arguments.length > 1) {
               printWarning('Invalid arguments supplied to oneOf, expected an array, got ' + arguments.length + ' arguments. ' + 'A common mistake is to write oneOf(x, y, z) instead of oneOf([x, y, z]).');
             } else {
@@ -1503,7 +1386,7 @@
       }
       function createUnionTypeChecker(arrayOfTypeCheckers) {
         if (!Array.isArray(arrayOfTypeCheckers)) {
-          process.env.NODE_ENV !== 'production' ? printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
+          printWarning('Invalid argument supplied to oneOfType, expected an instance of array.') ;
           return emptyFunctionThatReturnsNull;
         }
         for (var i = 0; i < arrayOfTypeCheckers.length; i++) {
@@ -1729,77 +1612,13 @@
    * This source code is licensed under the MIT license found in the
    * LICENSE file in the root directory of this source tree.
    */
-  var factoryWithThrowingShims;
-  var hasRequiredFactoryWithThrowingShims;
-  function requireFactoryWithThrowingShims() {
-    if (hasRequiredFactoryWithThrowingShims) return factoryWithThrowingShims;
-    hasRequiredFactoryWithThrowingShims = 1;
-    var ReactPropTypesSecret = requireReactPropTypesSecret();
-    function emptyFunction() {}
-    function emptyFunctionWithReset() {}
-    emptyFunctionWithReset.resetWarningCache = emptyFunction;
-    factoryWithThrowingShims = function factoryWithThrowingShims() {
-      function shim(props, propName, componentName, location, propFullName, secret) {
-        if (secret === ReactPropTypesSecret) {
-          // It is still safe when called from React.
-          return;
-        }
-        var err = new Error('Calling PropTypes validators directly is not supported by the `prop-types` package. ' + 'Use PropTypes.checkPropTypes() to call them. ' + 'Read more at http://fb.me/use-check-prop-types');
-        err.name = 'Invariant Violation';
-        throw err;
-      }
-      shim.isRequired = shim;
-      function getShim() {
-        return shim;
-      }
-      // Important!
-      // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
-      var ReactPropTypes = {
-        array: shim,
-        bigint: shim,
-        bool: shim,
-        func: shim,
-        number: shim,
-        object: shim,
-        string: shim,
-        symbol: shim,
-        any: shim,
-        arrayOf: getShim,
-        element: shim,
-        elementType: shim,
-        instanceOf: getShim,
-        node: shim,
-        objectOf: getShim,
-        oneOf: getShim,
-        oneOfType: getShim,
-        shape: getShim,
-        exact: getShim,
-        checkPropTypes: emptyFunctionWithReset,
-        resetWarningCache: emptyFunction
-      };
-      ReactPropTypes.PropTypes = ReactPropTypes;
-      return ReactPropTypes;
-    };
-    return factoryWithThrowingShims;
-  }
-
-  /**
-   * Copyright (c) 2013-present, Facebook, Inc.
-   *
-   * This source code is licensed under the MIT license found in the
-   * LICENSE file in the root directory of this source tree.
-   */
-  if (process.env.NODE_ENV !== 'production') {
+  {
     var ReactIs = requireReactIs();
 
     // By explicitly using `prop-types` you are opting into new development behavior.
     // http://fb.me/prop-types-in-prod
     var throwOnDirectAccess = true;
     propTypes.exports = requireFactoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
-  } else {
-    // By explicitly using `prop-types` you are opting into new production behavior.
-    // http://fb.me/prop-types-in-prod
-    propTypes.exports = requireFactoryWithThrowingShims()();
   }
 
   /* eslint-disable no-console */

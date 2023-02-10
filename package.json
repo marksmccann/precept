@@ -11,6 +11,7 @@
         "prepare": "husky install",
         "release": "npm run build:packages && lerna publish --no-private",
         "setup": "npm i && lerna init",
+        "start:froyojs": "cd apps/froyojs && npm start",
         "start:react": "cd apps/react && npm start",
         "test": "run-s test:*",
         "test:froyojs": "cross-env BABEL_ENV=froyojs jest froyojs.test.js",
