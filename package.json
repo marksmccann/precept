@@ -1,7 +1,9 @@
 {
     "name": "precept",
     "scripts": {
-        "build:apps": "lerna run build --scope=@apps/*",
+        "build:apps": "run-s build:apps:*",
+        "build:apps:docs": "lerna run build --scope=@apps/docs",
+        "build:apps:frameworks": "lerna run build --scope=@apps/* --ignore=@apps/docs",
         "build:packages": "lerna run build --scope=precept --scope=precept-*",
         "clean": "lerna run clean",
         "clean:nm": "lerna clean",
@@ -11,8 +13,7 @@
         "prepare": "husky install",
         "release": "npm run build:packages && lerna publish --no-private",
         "setup": "npm i && lerna init",
-        "start:froyojs": "cd packages/precept-froyojs && npm run storybook",
-        "start:react": "cd packages/precept-react && npm run storybook",
+        "start:react": "cd apps/react && npm start",
         "test": "run-s test:*",
         "test:froyojs": "cross-env BABEL_ENV=froyojs jest froyojs.test.js",
         "test:react": "cross-env BABEL_ENV=react jest react.test.js"
@@ -24,8 +25,8 @@
         "babel-jest": "^29.3.1",
         "clsx": "^1.2.1",
         "prism-react-renderer": "^1.3.5",
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "devDependencies": {
         "@babel/plugin-proposal-class-properties": "^7.18.6",
