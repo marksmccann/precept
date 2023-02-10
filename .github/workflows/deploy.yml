@@ -26,6 +26,10 @@ jobs:
                   cache: npm
             - name: Install dependencies
               run: npm ci
+            - name: Bootstrap projects
+              run: npx lerna init
+            - name: Build packages
+              run: npm run build:packages
             - name: Build website
               run: npm run build:apps
             - name: Deploy

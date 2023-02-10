@@ -26,8 +26,8 @@
         "url": "https://github.com/marksmccann/precept"
     },
     "peerDependencies": {
-        "react": "17 - 18",
-        "react-dom": "17 - 18"
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2"
     },
     "dependencies": {
         "nanoid": "^4.0.0",

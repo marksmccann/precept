@@ -12,7 +12,7 @@ Precept components built with React.
 
 ## Getting Started
 
-[View documentation →](https://marksmccann.github.io/precept/)
+[View documentation →](https://marksmccann.github.io/precept/docs)
 
 ## License
 

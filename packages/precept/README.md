@@ -12,7 +12,7 @@ A universal library of resources for building user interface components.
 
 ## Getting Started
 
-[View documentation →](https://marksmccann.github.io/precept/)
+[View documentation →](https://marksmccann.github.io/precept/docs)
 
 ## License
 

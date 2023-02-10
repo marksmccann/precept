@@ -12,7 +12,7 @@ Precept components built with Froyo.
 
 ## Getting Started
 
-[View documentation →](https://marksmccann.github.io/precept/)
+[View documentation →](https://marksmccann.github.io/precept/docs)
 
 ## License
 

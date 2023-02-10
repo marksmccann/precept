@@ -43,6 +43,11 @@ module.exports = {
                 'react/prefer-stateless-function': 'off',
                 'react/no-unused-class-component-methods': 'off',
                 'react/sort-comp': 'off',
+            },
+        },
+        {
+            files: ['packages/**/*', 'apps/**/*'],
+            rules: {
                 'jest/require-hook': 'off',
             },
         },
