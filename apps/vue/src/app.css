@@ -1,0 +1,11 @@
+.container {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+    width: 1000px;
+}
+
+[role='tabpanel'][data-active='false'] {
+    display: none;
+}

@@ -37,12 +37,17 @@ module.exports = {
             },
         },
         {
-            files: ['packages/precept-froyojs/**/*'],
+            files: [
+                'packages/precept-froyojs/**/*',
+                'packages/precept-vue/**/*',
+            ],
             rules: {
                 'react/require-render-return': 'off',
                 'react/prefer-stateless-function': 'off',
                 'react/no-unused-class-component-methods': 'off',
                 'react/sort-comp': 'off',
+                'react/react-in-jsx-scope': 'off',
+                'react/button-has-type': 'off',
             },
         },
         {

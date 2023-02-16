@@ -1,1 +1,3 @@
-export * as getTabsSchema from './getTabsSchema';
+/* eslint-disable import/prefer-default-export */
+
+export { default as getTabsSchema } from './getTabsSchema';

@@ -24,7 +24,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/marksmccann/precept"
+        "url": "https://github.com/marksmccann/precept/packages/precept-froyojs"
     },
     "peerDependencies": {
         "froyojs": "^0.5.2"

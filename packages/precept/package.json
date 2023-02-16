@@ -23,7 +23,7 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/marksmccann/precept"
+        "url": "https://github.com/marksmccann/precept/packages/precept"
     },
     "dependencies": {
         "@babel/runtime": "^7.20.7",
