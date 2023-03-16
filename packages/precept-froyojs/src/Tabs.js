@@ -1,10 +1,12 @@
-import PropTypes from 'prop-types';
-import getTabsSchema from 'precept/src/getTabsSchema';
+import { schema, options } from 'precept/dist/es/tabs';
 import { nanoid } from 'nanoid';
 import { Component, setAttributes, addEventListener } from 'froyojs';
 
+import getDefaultState from './helpers/getDefaultState';
+import getStateTypes from './helpers/getStateTypes';
+
 function getSchema() {
-    return getTabsSchema({
+    return schema({
         ...this.state,
         uniqueId: this.id,
         totalTabs: this.elements.tabs.length,
@@ -20,17 +22,11 @@ function getSchema() {
 
 class Tabs extends Component {
     static get stateTypes() {
-        return {
-            activeTab: PropTypes.number,
-            manual: PropTypes.bool,
-        };
+        return getStateTypes(options);
     }
 
     static get defaultState() {
-        return {
-            activeTab: 0,
-            manual: false,
-        };
+        return getDefaultState(options);
     }
 
     setup() {
@@ -40,12 +36,8 @@ class Tabs extends Component {
 
         this.elements = {
             tablist: rootElement.querySelector('[data-tablist]'),
-            tabs: Array.from(
-                rootElement.querySelectorAll(':scope > * > [data-tab]')
-            ),
-            panels: Array.from(
-                rootElement.querySelectorAll(':scope > [data-panel]')
-            ),
+            tabs: rootElement.querySelectorAll(':scope > * > [data-tab]'),
+            panels: rootElement.querySelectorAll(':scope > [data-panel]'),
         };
 
         this.listeners = {
@@ -74,9 +66,9 @@ class Tabs extends Component {
         // istanbul ignore else
         if (tabs.includes(event.target)) {
             const tabNumber = tabs.indexOf(event.target);
-            const { eventHandlers } = getSchema.call(this);
+            const { handlers } = getSchema.call(this);
 
-            eventHandlers.tabs[tabNumber].click(event);
+            handlers.tabs[tabNumber].click(event);
         }
     }
 
@@ -86,9 +78,9 @@ class Tabs extends Component {
         // istanbul ignore else
         if (tabs.includes(event.target)) {
             const tabNumber = tabs.indexOf(event.target);
-            const { eventHandlers } = getSchema.call(this);
+            const { handlers } = getSchema.call(this);
 
-            eventHandlers.tabs[tabNumber].focus(event);
+            handlers.tabs[tabNumber].focus(event);
         }
     }
 
@@ -98,28 +90,28 @@ class Tabs extends Component {
         // istanbul ignore else
         if (tabs.includes(event.target)) {
             const tabNumber = tabs.indexOf(event.target);
-            const { eventHandlers } = getSchema.call(this);
+            const { handlers } = getSchema.call(this);
 
-            eventHandlers.tabs[tabNumber].keydown(event);
+            handlers.tabs[tabNumber].keydown(event);
         }
     }
 
     render(stateChanges) {
         const { tablist, tabs, panels } = this.elements;
-        const { htmlAttributes } = getSchema.call(this);
+        const { attributes } = getSchema.call(this);
 
         if (!this.initialized) {
-            setAttributes(tablist, htmlAttributes.tablist);
+            setAttributes(tablist, attributes.tablist);
         }
 
         // istanbul ignore else
         if ('activeTab' in stateChanges) {
             tabs.forEach((tab, index) => {
-                setAttributes(tab, htmlAttributes.tabs[index]);
+                setAttributes(tab, attributes.tabs[index]);
             });
 
             panels.forEach((panel, index) => {
-                setAttributes(panel, htmlAttributes.panels[index]);
+                setAttributes(panel, attributes.panels[index]);
             });
         }
     }

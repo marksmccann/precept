@@ -1,6 +1,55 @@
-/* eslint-disable no-console */
+export interface TabsSchemaOptions {
+    uniqueId: string;
+    manual: boolean;
+    activeTab: number;
+    totalTabs: number;
+    totalPanels: number;
+    changeTab(tabNumber: number): void;
+    focusOnTab(tabNumber: number): void;
+}
 
-function getTabsSchema(tabsData) {
+export interface TabsSchemaResult {
+    attributes: {
+        tablist: {
+            role: 'tablist';
+        };
+        tabs: Array<{
+            type: 'button';
+            role: 'tab';
+            id: string;
+            'aria-controls': string;
+            'aria-selected': boolean;
+        }>;
+        panels: Array<{
+            role: 'tabpanel';
+            id: string;
+            'aria-labelledby': string;
+            hidden: boolean | null;
+        }>;
+    };
+    handlers: {
+        tabs: Array<{
+            click(event: MouseEvent): void;
+            focus(event: KeyboardEvent): void;
+            keydown(event: KeyboardEvent): void;
+        }>;
+    };
+}
+
+export const options = {
+    manual: {
+        type: Boolean,
+        default: false,
+    },
+    activeTab: {
+        type: Number,
+        default: 0,
+    },
+};
+
+export const schema = function getTabsSchema(
+    schemaOptions: TabsSchemaOptions
+): TabsSchemaResult {
     const {
         uniqueId,
         activeTab,
@@ -9,7 +58,7 @@ function getTabsSchema(tabsData) {
         totalPanels,
         changeTab,
         focusOnTab,
-    } = tabsData;
+    } = schemaOptions;
 
     // convert the tab and panel lengths into
     // an array of numbers that can be iterated
@@ -27,7 +76,7 @@ function getTabsSchema(tabsData) {
     }
 
     return {
-        htmlAttributes: {
+        attributes: {
             tablist: {
                 role: 'tablist',
             },
@@ -37,16 +86,15 @@ function getTabsSchema(tabsData) {
                 id: `${uniqueId}-tab-${tabNumber}`,
                 'aria-controls': `${uniqueId}-panel-${tabNumber}`,
                 'aria-selected': activeTab === tabNumber,
-                'data-active': activeTab === tabNumber,
             })),
             panels: panelNumbers.map((panelNumber) => ({
                 role: 'tabpanel',
                 id: `${uniqueId}-panel-${panelNumber}`,
                 'aria-labelledby': `${uniqueId}-tab-${panelNumber}`,
-                'data-active': activeTab === panelNumber,
+                hidden: activeTab === panelNumber ? null : true,
             })),
         },
-        eventHandlers: {
+        handlers: {
             tabs: tabNumbers.map((tabNumber) => ({
                 click() {
                     changeTab(tabNumber);
@@ -57,24 +105,22 @@ function getTabsSchema(tabsData) {
                     }
                 },
                 keydown(event) {
-                    if (manual) {
-                        return;
+                    const lastTab = totalTabs - 1;
+                    const nextTab = tabNumber + 1;
+                    const previousTab = tabNumber - 1;
+                    let tabToFocus = -1;
+
+                    if (event.key === 'ArrowRight') {
+                        tabToFocus = tabNumber === lastTab ? 0 : nextTab;
+                    } else if (event.key === 'ArrowLeft') {
+                        tabToFocus = tabNumber === 0 ? lastTab : previousTab;
                     }
 
-                    // istanbul ignore else
-                    if (event.key === 'ArrowRight') {
-                        focusOnTab(
-                            tabNumber === totalTabs - 1 ? 0 : tabNumber + 1
-                        );
-                    } else if (event.key === 'ArrowLeft') {
-                        focusOnTab(
-                            tabNumber === 0 ? totalTabs - 1 : tabNumber - 1
-                        );
+                    if (!manual && tabToFocus > -1) {
+                        focusOnTab(tabToFocus);
                     }
                 },
             })),
         },
     };
-}
-
-export default getTabsSchema;
+};

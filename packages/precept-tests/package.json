@@ -1,7 +1,7 @@
 {
-    "name": "precept",
+    "name": "precept-tests",
     "version": "0.1.0-alpha.0",
-    "description": "The universal UI component library",
+    "description": "Reusable unit tests for the Precept component library",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
     "types": "dist/types/index.js",
@@ -26,8 +26,8 @@
         "url": "https://github.com/marksmccann/precept/packages/precept"
     },
     "devDependencies": {
-        "cross-env": "^7.0.3",
-        "npm-run-all": "^4.1.5",
-        "rimraf": "^4.1.0"
+        "expect": "^29.4.3",
+        "rimraf": "^4.1.0",
+        "typescript": "^4.9.5"
     }
 }

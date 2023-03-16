@@ -4,10 +4,6 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.precept = {}));
 })(this, (function (exports) { 'use strict';
 
-  function _arrayWithHoles(arr) {
-    if (Array.isArray(arr)) return arr;
-  }
-
   function _iterableToArrayLimit(arr, i) {
     var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
     if (null != _i) {
@@ -27,7 +23,7 @@
         _d = !0, _e = err;
       } finally {
         try {
-          if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+          if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return;
         } finally {
           if (_d) throw _e;
         }
@@ -35,136 +31,7 @@
       return _arr;
     }
   }
-
-  function _arrayLikeToArray(arr, len) {
-    if (len == null || len > arr.length) len = arr.length;
-    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-    return arr2;
-  }
-
-  function _unsupportedIterableToArray(o, minLen) {
-    if (!o) return;
-    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-    var n = Object.prototype.toString.call(o).slice(8, -1);
-    if (n === "Object" && o.constructor) n = o.constructor.name;
-    if (n === "Map" || n === "Set") return Array.from(o);
-    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-  }
-
-  function _nonIterableRest() {
-    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-  }
-
-  function _slicedToArray(arr, i) {
-    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
-  }
-
-  function _typeof$1(obj) {
-    "@babel/helpers - typeof";
-
-    return _typeof$1 = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
-      return typeof obj;
-    } : function (obj) {
-      return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    }, _typeof$1(obj);
-  }
-
-  function _toPrimitive$1(input, hint) {
-    if (_typeof$1(input) !== "object" || input === null) return input;
-    var prim = input[Symbol.toPrimitive];
-    if (prim !== undefined) {
-      var res = prim.call(input, hint || "default");
-      if (_typeof$1(res) !== "object") return res;
-      throw new TypeError("@@toPrimitive must return a primitive value.");
-    }
-    return (hint === "string" ? String : Number)(input);
-  }
-
-  function _toPropertyKey$1(arg) {
-    var key = _toPrimitive$1(arg, "string");
-    return _typeof$1(key) === "symbol" ? key : String(key);
-  }
-
-  function _defineProperty$1(obj, key, value) {
-    key = _toPropertyKey$1(key);
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-    return obj;
-  }
-
-  function _classCallCheck$1(instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  }
-
-  function _defineProperties$1(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, _toPropertyKey$1(descriptor.key), descriptor);
-    }
-  }
-  function _createClass$1(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties$1(Constructor, staticProps);
-    Object.defineProperty(Constructor, "prototype", {
-      writable: false
-    });
-    return Constructor;
-  }
-
-  function _classApplyDescriptorSet(receiver, descriptor, value) {
-    if (descriptor.set) {
-      descriptor.set.call(receiver, value);
-    } else {
-      if (!descriptor.writable) {
-        throw new TypeError("attempted to set read only private field");
-      }
-      descriptor.value = value;
-    }
-  }
-
-  function _classExtractFieldDescriptor(receiver, privateMap, action) {
-    if (!privateMap.has(receiver)) {
-      throw new TypeError("attempted to " + action + " private field on non-instance");
-    }
-    return privateMap.get(receiver);
-  }
-
-  function _classPrivateFieldSet(receiver, privateMap, value) {
-    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
-    _classApplyDescriptorSet(receiver, descriptor, value);
-    return value;
-  }
-
-  function _classApplyDescriptorGet(receiver, descriptor) {
-    if (descriptor.get) {
-      return descriptor.get.call(receiver);
-    }
-    return descriptor.value;
-  }
-
-  function _classPrivateFieldGet(receiver, privateMap) {
-    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
-    return _classApplyDescriptorGet(receiver, descriptor);
-  }
-
-  function getDefaultExportFromCjs (x) {
-  	return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, 'default') ? x['default'] : x;
-  }
-
-  function ownKeys$1(object, enumerableOnly) {
+  function ownKeys(object, enumerableOnly) {
     var keys = Object.keys(object);
     if (Object.getOwnPropertySymbols) {
       var symbols = Object.getOwnPropertySymbols(object);
@@ -177,9 +44,9 @@
   function _objectSpread2(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = null != arguments[i] ? arguments[i] : {};
-      i % 2 ? ownKeys$1(Object(source), !0).forEach(function (key) {
+      i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
         _defineProperty(target, key, source[key]);
-      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys$1(Object(source)).forEach(function (key) {
+      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
         Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
       });
     }
@@ -298,6 +165,28 @@
       return _possibleConstructorReturn(this, result);
     };
   }
+  function _slicedToArray(arr, i) {
+    return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  }
+  function _arrayWithHoles(arr) {
+    if (Array.isArray(arr)) return arr;
+  }
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+    return arr2;
+  }
+  function _nonIterableRest() {
+    throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
   function _toPrimitive(input, hint) {
     if (typeof input !== "object" || input === null) return input;
     var prim = input[Symbol.toPrimitive];
@@ -329,219 +218,179 @@
     return ReactPropTypesSecret_1;
   }
 
-  var has;
+  var has$1;
   var hasRequiredHas;
   function requireHas() {
-    if (hasRequiredHas) return has;
+    if (hasRequiredHas) return has$1;
     hasRequiredHas = 1;
-    has = Function.call.bind(Object.prototype.hasOwnProperty);
-    return has;
+    has$1 = Function.call.bind(Object.prototype.hasOwnProperty);
+    return has$1;
   }
 
-  var checkPropTypes_1;
-  var hasRequiredCheckPropTypes;
-  function requireCheckPropTypes() {
-    if (hasRequiredCheckPropTypes) return checkPropTypes_1;
-    hasRequiredCheckPropTypes = 1;
-    var printWarning = function printWarning() {};
-    {
-      var ReactPropTypesSecret = requireReactPropTypesSecret();
-      var loggedTypeFailures = {};
-      var has = requireHas();
-      printWarning = function printWarning(text) {
-        var message = 'Warning: ' + text;
-        if (typeof console !== 'undefined') {
-          console.error(message);
-        }
-        try {
-          // --- Welcome to debugging React ---
-          // This error was thrown as a convenience so that you can use this stack
-          // to find the callsite that caused this warning to fire.
-          throw new Error(message);
-        } catch (x) {/**/}
-      };
-    }
+  var printWarning = function printWarning() {};
+  {
+    var ReactPropTypesSecret = requireReactPropTypesSecret();
+    var loggedTypeFailures = {};
+    var has = requireHas();
+    printWarning = function printWarning(text) {
+      var message = 'Warning: ' + text;
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // --- Welcome to debugging React ---
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch (x) {/**/}
+    };
+  }
 
-    /**
-     * Assert that the values match with the type specs.
-     * Error messages are memorized and will only be shown once.
-     *
-     * @param {object} typeSpecs Map of name to a ReactPropType
-     * @param {object} values Runtime values that need to be type-checked
-     * @param {string} location e.g. "prop", "context", "child context"
-     * @param {string} componentName Name of the component for error messages.
-     * @param {?Function} getStack Returns the component stack.
-     * @private
-     */
-    function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-      {
-        for (var typeSpecName in typeSpecs) {
-          if (has(typeSpecs, typeSpecName)) {
-            var error;
-            // Prop type validation may throw. In case they do, we don't want to
-            // fail the render phase where it didn't fail before. So we log it.
-            // After these have been cleaned up, we'll let them throw.
-            try {
-              // This is intentionally an invariant that gets caught. It's the same
-              // behavior as without this statement except with a better message.
-              if (typeof typeSpecs[typeSpecName] !== 'function') {
-                var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + _typeof(typeSpecs[typeSpecName]) + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
-                err.name = 'Invariant Violation';
-                throw err;
-              }
-              error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
-            } catch (ex) {
-              error = ex;
+  /**
+   * Assert that the values match with the type specs.
+   * Error messages are memorized and will only be shown once.
+   *
+   * @param {object} typeSpecs Map of name to a ReactPropType
+   * @param {object} values Runtime values that need to be type-checked
+   * @param {string} location e.g. "prop", "context", "child context"
+   * @param {string} componentName Name of the component for error messages.
+   * @param {?Function} getStack Returns the component stack.
+   * @private
+   */
+  function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
+    {
+      for (var typeSpecName in typeSpecs) {
+        if (has(typeSpecs, typeSpecName)) {
+          var error;
+          // Prop type validation may throw. In case they do, we don't want to
+          // fail the render phase where it didn't fail before. So we log it.
+          // After these have been cleaned up, we'll let them throw.
+          try {
+            // This is intentionally an invariant that gets caught. It's the same
+            // behavior as without this statement except with a better message.
+            if (typeof typeSpecs[typeSpecName] !== 'function') {
+              var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + _typeof(typeSpecs[typeSpecName]) + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
+              err.name = 'Invariant Violation';
+              throw err;
             }
-            if (error && !(error instanceof Error)) {
-              printWarning((componentName || 'React class') + ': type specification of ' + location + ' `' + typeSpecName + '` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a ' + _typeof(error) + '. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).');
-            }
-            if (error instanceof Error && !(error.message in loggedTypeFailures)) {
-              // Only monitor this failure once because there tends to be a lot of the
-              // same error.
-              loggedTypeFailures[error.message] = true;
-              var stack = getStack ? getStack() : '';
-              printWarning('Failed ' + location + ' type: ' + error.message + (stack != null ? stack : ''));
-            }
+            error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret);
+          } catch (ex) {
+            error = ex;
+          }
+          if (error && !(error instanceof Error)) {
+            printWarning((componentName || 'React class') + ': type specification of ' + location + ' `' + typeSpecName + '` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a ' + _typeof(error) + '. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).');
+          }
+          if (error instanceof Error && !(error.message in loggedTypeFailures)) {
+            // Only monitor this failure once because there tends to be a lot of the
+            // same error.
+            loggedTypeFailures[error.message] = true;
+            var stack = getStack ? getStack() : '';
+            printWarning('Failed ' + location + ' type: ' + error.message + (stack != null ? stack : ''));
           }
         }
       }
     }
-
-    /**
-     * Resets warning cache when testing.
-     *
-     * @private
-     */
-    checkPropTypes.resetWarningCache = function () {
-      {
-        loggedTypeFailures = {};
-      }
-    };
-    checkPropTypes_1 = checkPropTypes;
-    return checkPropTypes_1;
   }
 
-  var checkPropTypesExports = requireCheckPropTypes();
-  var checkPropTypes = /*@__PURE__*/getDefaultExportFromCjs(checkPropTypesExports);
-
-  function ownKeys(object, enumerableOnly) {
-    var keys = Object.keys(object);
-    if (Object.getOwnPropertySymbols) {
-      var symbols = Object.getOwnPropertySymbols(object);
-      enumerableOnly && (symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      })), keys.push.apply(keys, symbols);
+  /**
+   * Resets warning cache when testing.
+   *
+   * @private
+   */
+  checkPropTypes.resetWarningCache = function () {
+    {
+      loggedTypeFailures = {};
     }
-    return keys;
+  };
+  var checkPropTypes_1 = checkPropTypes;
+  var checkPropTypes$1 = checkPropTypes_1;
+
+  /******************************************************************************
+  Copyright (c) Microsoft Corporation.
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+  REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+  AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+  INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+  LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+  OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+  PERFORMANCE OF THIS SOFTWARE.
+  ***************************************************************************** */
+
+  function __classPrivateFieldGet(receiver, state, kind, f) {
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
+    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
   }
-  function _objectSpread(target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = null != arguments[i] ? arguments[i] : {};
-      i % 2 ? ownKeys(Object(source), !0).forEach(function (key) {
-        _defineProperty$1(target, key, source[key]);
-      }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-    return target;
-  }
-  function _classPrivateFieldInitSpec(obj, privateMap, value) {
-    _checkPrivateRedeclaration(obj, privateMap);
-    privateMap.set(obj, value);
-  }
-  function _checkPrivateRedeclaration(obj, privateCollection) {
-    if (privateCollection.has(obj)) {
-      throw new TypeError("Cannot initialize the same private elements twice on an object");
-    }
+  function __classPrivateFieldSet(receiver, state, value, kind, f) {
+    if (kind === "m") throw new TypeError("Private method is not writable");
+    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
+    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
+    return kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value), value;
   }
 
+  /* eslint-disable no-console */
+  var _Component_components, _Component_elements, _Component_initialized, _Component_listeners, _Component_observers, _Component_rootElement, _Component_state;
   // stores references to component instances
   var instances = new Set();
-  var _components = /*#__PURE__*/new WeakMap();
-  var _initialized = /*#__PURE__*/new WeakMap();
-  var _listeners = /*#__PURE__*/new WeakMap();
-  var _observers = /*#__PURE__*/new WeakMap();
-  var _rootElement = /*#__PURE__*/new WeakMap();
-  var _state = /*#__PURE__*/new WeakMap();
   var Component = /*#__PURE__*/function () {
     function Component(root) {
       var initialState = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-      _classCallCheck$1(this, Component);
-      _classPrivateFieldInitSpec(this, _components, {
-        writable: true,
-        value: new Map()
-      });
-      _classPrivateFieldInitSpec(this, _initialized, {
-        writable: true,
-        value: false
-      });
-      _classPrivateFieldInitSpec(this, _listeners, {
-        writable: true,
-        value: new Map()
-      });
-      _classPrivateFieldInitSpec(this, _observers, {
-        writable: true,
-        value: new Set()
-      });
-      _classPrivateFieldInitSpec(this, _rootElement, {
-        writable: true,
-        value: null
-      });
-      _classPrivateFieldInitSpec(this, _state, {
-        writable: true,
-        value: {}
-      });
+      _classCallCheck(this, Component);
+      _Component_components.set(this, new Map());
+      _Component_elements.set(this, {});
+      _Component_initialized.set(this, false);
+      _Component_listeners.set(this, new Map());
+      _Component_observers.set(this, new Set());
+      _Component_rootElement.set(this, void 0);
+      _Component_state.set(this, {});
       var htmlInitialState = {};
-      var rootElement = root;
-      if (typeof rootElement === 'string') {
+      var rootElement = null;
+      if (typeof root === 'string') {
         rootElement = document.body.querySelector(root);
+      } else if (root instanceof Element) {
+        rootElement = root;
       }
-      if (!(rootElement instanceof Element)) {
-        console.error('Warning: the root element must be an HTML element');
-        return;
+      if (rootElement instanceof Element) {
+        __classPrivateFieldSet(this, _Component_rootElement, rootElement, "f");
+      } else {
+        throw new Error('Warning: the root element must be an HTML element');
       }
-      if (!this.render) {
-        console.error('Warning: components must have a "render" method');
-        return;
-      }
-
       // retrieve initial state properties from the HTML
       if (rootElement.hasAttribute('data-initial-state')) {
         try {
-          htmlInitialState = JSON.parse(rootElement.getAttribute('data-initial-state'));
+          htmlInitialState = JSON.parse(rootElement.getAttribute('data-initial-state') || '');
         } catch (_unused) {
           console.error('Warning: "data-initial-state" must contain valid JSON');
         }
       }
-      _classPrivateFieldSet(this, _rootElement, rootElement);
-
-      // bind the lifecycle methods to instance
-      this.setup = this.setup.bind(this);
-      this.validate = this.validate.bind(this);
-      this.render = this.render.bind(this);
-      this.update = this.update.bind(this);
-
-      // subscribe lifecycle methods to instance
-      this.subscribe(this.validate);
-      this.subscribe(this.render);
-      this.subscribe(this.update);
-
       // merge and set initial states before setup
-      this.setState(_objectSpread(_objectSpread({}, htmlInitialState), initialState));
-
-      // manually call lifecycle methods for first time
-      this.setup();
-      this.validate(this.state, {}, this);
-      this.render(this.state, {}, this);
-      this.update(this.state, {}, this);
-      _classPrivateFieldSet(this, _initialized, true);
+      this.state = _objectSpread2(_objectSpread2({}, htmlInitialState), initialState);
+      if (this.setup) {
+        this.setup();
+      }
+      if (this.validate) {
+        this.subscribe(this.validate.bind(this));
+        this.validate(this.state, {}, this);
+      }
+      if (this.render) {
+        this.subscribe(this.render.bind(this));
+        this.render(this.state, {}, this);
+      }
+      if (this.update !== undefined) {
+        this.subscribe(this.update.bind(this));
+        this.update(this.state, {}, this);
+      }
+      __classPrivateFieldSet(this, _Component_initialized, true, "f");
       instances.add(this);
     }
-    _createClass$1(Component, [{
+    _createClass(Component, [{
       key: "components",
       get: function get() {
-        return Object.fromEntries(_classPrivateFieldGet(this, _components));
+        return Object.fromEntries(__classPrivateFieldGet(this, _Component_components, "f"));
       },
       set: function set(newComponents) {
         var _this = this;
@@ -553,10 +402,11 @@
             console.error("Warning: component \"".concat(key, "\" is not an instance of \"Component\""));
             return;
           }
-          if (_classPrivateFieldGet(_this, _components).has(key)) {
-            _classPrivateFieldGet(_this, _components).get(key).destroy();
+          if (__classPrivateFieldGet(_this, _Component_components, "f").has(key)) {
+            var _classPrivateFieldGe;
+            (_classPrivateFieldGe = __classPrivateFieldGet(_this, _Component_components, "f").get(key)) === null || _classPrivateFieldGe === void 0 ? void 0 : _classPrivateFieldGe.destroy();
           }
-          _classPrivateFieldGet(_this, _components).set(key, value);
+          __classPrivateFieldGet(_this, _Component_components, "f").set(key, value);
         });
       }
     }, {
@@ -568,40 +418,63 @@
         return displayName || name;
       }
     }, {
-      key: "listeners",
+      key: "elements",
       get: function get() {
-        return Object.fromEntries(_classPrivateFieldGet(this, _listeners));
+        return _objectSpread2({}, __classPrivateFieldGet(this, _Component_elements, "f"));
       },
-      set: function set(newListeners) {
+      set: function set(newElements) {
         var _this2 = this;
-        Object.entries(newListeners).forEach(function (_ref3) {
+        Object.entries(newElements).forEach(function (_ref3) {
           var _ref4 = _slicedToArray(_ref3, 2),
             key = _ref4[0],
             value = _ref4[1];
+          if (value instanceof Node || value === null) {
+            __classPrivateFieldGet(_this2, _Component_elements, "f")[key] = value;
+            return;
+          }
+          if (value instanceof NodeList || value instanceof HTMLCollection) {
+            __classPrivateFieldGet(_this2, _Component_elements, "f")[key] = Array.from(value);
+            return;
+          }
+          console.error("Warning: value assigned to \"elements.".concat(key, "\" is not a valid DOM node"));
+        });
+      }
+    }, {
+      key: "listeners",
+      get: function get() {
+        return Object.fromEntries(__classPrivateFieldGet(this, _Component_listeners, "f"));
+      },
+      set: function set(newListeners) {
+        var _this3 = this;
+        Object.entries(newListeners).forEach(function (_ref5) {
+          var _ref6 = _slicedToArray(_ref5, 2),
+            key = _ref6[0],
+            value = _ref6[1];
           if (typeof (value === null || value === void 0 ? void 0 : value.destroy) !== 'function') {
             console.error("Warning: listener \"".concat(key, "\" is missing a \"destroy\" function"));
             return;
           }
-          if (_classPrivateFieldGet(_this2, _listeners).has(key)) {
-            _classPrivateFieldGet(_this2, _listeners).get(key).destroy();
+          if (__classPrivateFieldGet(_this3, _Component_listeners, "f").has(key)) {
+            var _classPrivateFieldGe2;
+            (_classPrivateFieldGe2 = __classPrivateFieldGet(_this3, _Component_listeners, "f").get(key)) === null || _classPrivateFieldGe2 === void 0 ? void 0 : _classPrivateFieldGe2.destroy();
           }
-          _classPrivateFieldGet(_this2, _listeners).set(key, value);
+          __classPrivateFieldGet(_this3, _Component_listeners, "f").set(key, value);
         });
       }
     }, {
       key: "initialized",
       get: function get() {
-        return _classPrivateFieldGet(this, _initialized);
+        return __classPrivateFieldGet(this, _Component_initialized, "f");
       }
     }, {
       key: "rootElement",
       get: function get() {
-        return _classPrivateFieldGet(this, _rootElement);
+        return __classPrivateFieldGet(this, _Component_rootElement, "f");
       }
     }, {
       key: "state",
       get: function get() {
-        return _objectSpread({}, _classPrivateFieldGet(this, _state));
+        return _objectSpread2({}, __classPrivateFieldGet(this, _Component_state, "f"));
       },
       set: function set(newState) {
         if (this.initialized) {
@@ -613,11 +486,11 @@
     }, {
       key: "destroy",
       value: function destroy() {
-        _classPrivateFieldGet(this, _observers).clear();
-        _classPrivateFieldGet(this, _listeners).forEach(function (listener) {
+        __classPrivateFieldGet(this, _Component_observers, "f").clear();
+        __classPrivateFieldGet(this, _Component_listeners, "f").forEach(function (listener) {
           return listener.destroy();
         });
-        _classPrivateFieldGet(this, _components).forEach(function (component) {
+        __classPrivateFieldGet(this, _Component_components, "f").forEach(function (component) {
           return component.destroy();
         });
         instances["delete"](this);
@@ -625,7 +498,7 @@
     }, {
       key: "setState",
       value: function setState(newState) {
-        var _this3 = this;
+        var _this4 = this;
         var _this$constructor2 = this.constructor,
           _this$constructor2$de = _this$constructor2.defaultState,
           defaultState = _this$constructor2$de === void 0 ? {} : _this$constructor2$de,
@@ -633,38 +506,33 @@
           stateTypes = _this$constructor2$st === void 0 ? {} : _this$constructor2$st;
         var previousState = this.state;
         var stateChanges = {};
-
         // identify state properties that have changed
-        Object.entries(newState).forEach(function (_ref5) {
-          var _ref6 = _slicedToArray(_ref5, 2),
-            key = _ref6[0],
-            value = _ref6[1];
+        Object.entries(newState).forEach(function (_ref7) {
+          var _ref8 = _slicedToArray(_ref7, 2),
+            key = _ref8[0],
+            value = _ref8[1];
           if (value !== previousState[key]) {
             stateChanges[key] = value;
           }
         });
         if (Object.keys(stateChanges).length > 0 || !this.initialized) {
-          var nextState = _objectSpread(_objectSpread({}, previousState), stateChanges);
-
+          var nextState = _objectSpread2(_objectSpread2({}, previousState), stateChanges);
           // default states that are "undefined"
           Object.keys(defaultState).forEach(function (key) {
             if (typeof nextState[key] === 'undefined') {
               nextState[key] = defaultState[key];
             }
           });
-
           // validate data types of state in non-production
           {
-            checkPropTypes(stateTypes, nextState, 'state', this.displayName);
+            checkPropTypes$1(stateTypes, nextState, 'state', this.displayName);
           }
-
           // update the state
-          _classPrivateFieldSet(this, _state, nextState);
-
+          __classPrivateFieldSet(this, _Component_state, nextState, "f");
           // notify observers if initialized
           if (this.initialized) {
-            _classPrivateFieldGet(this, _observers).forEach(function (observer) {
-              observer(stateChanges, previousState, _this3);
+            __classPrivateFieldGet(this, _Component_observers, "f").forEach(function (observer) {
+              observer(stateChanges, previousState, _this4);
             });
           }
         }
@@ -676,28 +544,17 @@
           console.error('Warning: a function must be provided to "subscribe"');
           return;
         }
-        if (!_classPrivateFieldGet(this, _observers).has(observer)) {
-          _classPrivateFieldGet(this, _observers).add(observer);
+        if (!__classPrivateFieldGet(this, _Component_observers, "f").has(observer)) {
+          __classPrivateFieldGet(this, _Component_observers, "f").add(observer);
         }
       }
     }, {
       key: "unsubscribe",
       value: function unsubscribe(observer) {
-        if (_classPrivateFieldGet(this, _observers).has(observer)) {
-          _classPrivateFieldGet(this, _observers)["delete"](observer);
+        if (__classPrivateFieldGet(this, _Component_observers, "f").has(observer)) {
+          __classPrivateFieldGet(this, _Component_observers, "f")["delete"](observer);
         }
       }
-
-      /* eslint-disable class-methods-use-this */
-    }, {
-      key: "setup",
-      value: function setup() {}
-    }, {
-      key: "validate",
-      value: function validate() {}
-    }, {
-      key: "update",
-      value: function update() {}
     }], [{
       key: "instances",
       get: function get() {
@@ -706,6 +563,7 @@
     }]);
     return Component;
   }();
+  _Component_components = new WeakMap(), _Component_elements = new WeakMap(), _Component_initialized = new WeakMap(), _Component_listeners = new WeakMap(), _Component_observers = new WeakMap(), _Component_rootElement = new WeakMap(), _Component_state = new WeakMap();
 
   /* eslint-disable no-console */
   function createInitializer(componentList) {
@@ -713,31 +571,25 @@
       var rootElements = document.querySelectorAll('[data-initialize]');
       var instances = [];
       Array.from(rootElements).forEach(function (rootElement) {
-        var name = rootElement.getAttribute('data-initialize');
-        var Constructor = componentList[name];
-        if (!(Constructor.prototype instanceof Component)) {
+        var name = rootElement.getAttribute('data-initialize') || '';
+        if (name in componentList && componentList[name].prototype instanceof Component) {
+          rootElement.removeAttribute('data-initialize');
+          instances.push(new componentList[name](rootElement));
+        } else {
           console.error("Warning: \"".concat(name, "\" is not a valid \"Component\" constructor"));
-          return;
         }
-        rootElement.removeAttribute('data-initialize');
-        instances.push(new Constructor(rootElement));
       });
       return instances;
     };
   }
-
-  function addEventListener(target) {
-    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-    target.addEventListener.apply(target, args);
+  function addEventListener(target, type, listener, options) {
+    target.addEventListener(type, listener, options);
     return {
       destroy: function destroy() {
-        target.removeEventListener.apply(target, args);
+        target.removeEventListener(type, listener, options);
       }
     };
   }
-
   function createMutationObserver(target, callback, options) {
     var observer = new MutationObserver(callback);
     observer.observe(target, options);
@@ -748,7 +600,6 @@
       }
     };
   }
-
   function createMediaQueryListener(query, callback) {
     var media = window.matchMedia(query);
     media.addEventListener('change', callback);
@@ -759,12 +610,12 @@
       }
     };
   }
-
-  function setAttributes(target, attributes) {
-    Object.entries(attributes !== null && attributes !== void 0 ? attributes : {}).forEach(function (_ref) {
-      var _ref2 = _slicedToArray(_ref, 2),
-        key = _ref2[0],
-        value = _ref2[1];
+  function setAttributes(target) {
+    var attributes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    Object.entries(attributes).forEach(function (_ref9) {
+      var _ref10 = _slicedToArray(_ref9, 2),
+        key = _ref10[0],
+        value = _ref10[1];
       if (value === null) {
         target.removeAttribute(key);
       } else if (value !== undefined) {
@@ -772,11 +623,12 @@
       }
     });
   }
-
   function createElement(tag, attributes) {
     var children = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
     var element = document.createElement(tag);
-    setAttributes(element, attributes);
+    if (attributes) {
+      setAttributes(element, attributes);
+    }
     if (typeof children === 'string') {
       element.innerHTML = children;
     } else {
@@ -784,8 +636,13 @@
     }
     return element;
   }
+  function setClasses(target, classes) {
+    Object.entries(classes).forEach(function (entry) {
+      target.classList[entry[1] ? 'add' : 'remove'](entry[0]);
+    });
+  }
 
-  var index = /*#__PURE__*/Object.freeze({
+  var froyojs = /*#__PURE__*/Object.freeze({
     __proto__: null,
     Component: Component,
     addEventListener: addEventListener,
@@ -793,8 +650,116 @@
     createInitializer: createInitializer,
     createMediaQueryListener: createMediaQueryListener,
     createMutationObserver: createMutationObserver,
-    setAttributes: setAttributes
+    setAttributes: setAttributes,
+    setClasses: setClasses
   });
+
+  var options = {
+    manual: {
+      type: Boolean,
+      "default": false
+    },
+    activeTab: {
+      type: Number,
+      "default": 0
+    }
+  };
+  var schema = function getTabsSchema(schemaOptions) {
+    var uniqueId = schemaOptions.uniqueId,
+      activeTab = schemaOptions.activeTab,
+      manual = schemaOptions.manual,
+      totalTabs = schemaOptions.totalTabs,
+      totalPanels = schemaOptions.totalPanels,
+      changeTab = schemaOptions.changeTab,
+      focusOnTab = schemaOptions.focusOnTab;
+    // convert the tab and panel lengths into
+    // an array of numbers that can be iterated
+    var tabNumbers = Array.from(Array(totalTabs).keys());
+    var panelNumbers = Array.from(Array(totalPanels).keys());
+    if (totalTabs !== totalPanels) {
+      console.error("Warning: Tabs must have an equal number of tabs and panels. Found ".concat(totalTabs, " tabs and ").concat(totalPanels, " panels."));
+    }
+    if (activeTab < 0 || activeTab >= totalTabs) {
+      console.error("Warning: There is no tab for index: \"".concat(activeTab, "\""));
+    }
+    return {
+      attributes: {
+        tablist: {
+          role: 'tablist'
+        },
+        tabs: tabNumbers.map(function (tabNumber) {
+          return {
+            type: 'button',
+            role: 'tab',
+            id: "".concat(uniqueId, "-tab-").concat(tabNumber),
+            'aria-controls': "".concat(uniqueId, "-panel-").concat(tabNumber),
+            'aria-selected': activeTab === tabNumber
+          };
+        }),
+        panels: panelNumbers.map(function (panelNumber) {
+          return {
+            role: 'tabpanel',
+            id: "".concat(uniqueId, "-panel-").concat(panelNumber),
+            'aria-labelledby': "".concat(uniqueId, "-tab-").concat(panelNumber),
+            hidden: activeTab === panelNumber ? null : true
+          };
+        })
+      },
+      handlers: {
+        tabs: tabNumbers.map(function (tabNumber) {
+          return {
+            click: function click() {
+              changeTab(tabNumber);
+            },
+            focus: function focus() {
+              if (!manual) {
+                changeTab(tabNumber);
+              }
+            },
+            keydown: function keydown(event) {
+              var lastTab = totalTabs - 1;
+              var nextTab = tabNumber + 1;
+              var previousTab = tabNumber - 1;
+              var tabToFocus = -1;
+              if (event.key === 'ArrowRight') {
+                tabToFocus = tabNumber === lastTab ? 0 : nextTab;
+              } else if (event.key === 'ArrowLeft') {
+                tabToFocus = tabNumber === 0 ? lastTab : previousTab;
+              }
+              if (!manual && tabToFocus > -1) {
+                focusOnTab(tabToFocus);
+              }
+            }
+          };
+        })
+      }
+    };
+  };
+
+  var nanoid = function nanoid() {
+    var size = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 21;
+    return crypto.getRandomValues(new Uint8Array(size)).reduce(function (id, _byte) {
+      _byte &= 63;
+      if (_byte < 36) {
+        id += _byte.toString(36);
+      } else if (_byte < 62) {
+        id += (_byte - 26).toString(36).toUpperCase();
+      } else if (_byte > 62) {
+        id += '-';
+      } else {
+        id += '_';
+      }
+      return id;
+    }, '');
+  };
+
+  function getDefaultState(options) {
+    var defaultState = {};
+    Object.keys(options).forEach(function (name) {
+      defaultState[name] = options[name]["default"];
+    });
+    return defaultState;
+  }
 
   var propTypesExports = {};
   var propTypes = {
@@ -1081,7 +1046,7 @@
     var assign = requireObjectAssign();
     var ReactPropTypesSecret = requireReactPropTypesSecret();
     var has = requireHas();
-    var checkPropTypes = requireCheckPropTypes();
+    var checkPropTypes = checkPropTypes_1;
     var printWarning = function printWarning() {};
     {
       printWarning = function printWarning(text) {
@@ -1634,100 +1599,24 @@
     propTypes.exports = requireFactoryWithTypeCheckers()(ReactIs.isElement, throwOnDirectAccess);
   }
 
-  /* eslint-disable no-console */
-
-  function getTabsSchema(tabsData) {
-    var uniqueId = tabsData.uniqueId,
-      activeTab = tabsData.activeTab,
-      manual = tabsData.manual,
-      totalTabs = tabsData.totalTabs,
-      totalPanels = tabsData.totalPanels,
-      changeTab = tabsData.changeTab,
-      focusOnTab = tabsData.focusOnTab;
-
-    // convert the tab and panel lengths into
-    // an array of numbers that can be iterated
-    var tabNumbers = Array.from(Array(totalTabs).keys());
-    var panelNumbers = Array.from(Array(totalPanels).keys());
-    if (totalTabs !== totalPanels) {
-      console.error("Warning: Tabs must have an equal number of tabs and panels. Found ".concat(totalTabs, " tabs and ").concat(totalPanels, " panels."));
-    }
-    if (activeTab < 0 || activeTab >= totalTabs) {
-      console.error("Warning: There is no tab for index: \"".concat(activeTab, "\""));
-    }
-    return {
-      htmlAttributes: {
-        tablist: {
-          role: 'tablist'
-        },
-        tabs: tabNumbers.map(function (tabNumber) {
-          return {
-            type: 'button',
-            role: 'tab',
-            id: "".concat(uniqueId, "-tab-").concat(tabNumber),
-            'aria-controls': "".concat(uniqueId, "-panel-").concat(tabNumber),
-            'aria-selected': activeTab === tabNumber,
-            'data-active': activeTab === tabNumber
-          };
-        }),
-        panels: panelNumbers.map(function (panelNumber) {
-          return {
-            role: 'tabpanel',
-            id: "".concat(uniqueId, "-panel-").concat(panelNumber),
-            'aria-labelledby': "".concat(uniqueId, "-tab-").concat(panelNumber),
-            'data-active': activeTab === panelNumber
-          };
-        })
-      },
-      eventHandlers: {
-        tabs: tabNumbers.map(function (tabNumber) {
-          return {
-            click: function click() {
-              changeTab(tabNumber);
-            },
-            focus: function focus() {
-              if (!manual) {
-                changeTab(tabNumber);
-              }
-            },
-            keydown: function keydown(event) {
-              if (manual) {
-                return;
-              }
-
-              // istanbul ignore else
-              if (event.key === 'ArrowRight') {
-                focusOnTab(tabNumber === totalTabs - 1 ? 0 : tabNumber + 1);
-              } else if (event.key === 'ArrowLeft') {
-                focusOnTab(tabNumber === 0 ? totalTabs - 1 : tabNumber - 1);
-              }
-            }
-          };
-        })
+  function getStateTypes(options) {
+    var stateTypes = {};
+    Object.keys(options).forEach(function (name) {
+      switch (options[name].type) {
+        case Boolean:
+          stateTypes[name] = propTypesExports.bool;
+          break;
+        case Number:
+          stateTypes[name] = propTypesExports.number;
+          break;
       }
-    };
+    });
+    return stateTypes;
   }
-
-  var nanoid = function nanoid() {
-    var size = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 21;
-    return crypto.getRandomValues(new Uint8Array(size)).reduce(function (id, _byte) {
-      _byte &= 63;
-      if (_byte < 36) {
-        id += _byte.toString(36);
-      } else if (_byte < 62) {
-        id += (_byte - 26).toString(36).toUpperCase();
-      } else if (_byte > 62) {
-        id += '-';
-      } else {
-        id += '_';
-      }
-      return id;
-    }, '');
-  };
 
   function getSchema() {
     var _this = this;
-    return getTabsSchema(_objectSpread2(_objectSpread2({}, this.state), {}, {
+    return schema(_objectSpread2(_objectSpread2({}, this.state), {}, {
       uniqueId: this.id,
       totalTabs: this.elements.tabs.length,
       totalPanels: this.elements.panels.length,
@@ -1755,8 +1644,8 @@
         this.id = nanoid(8);
         this.elements = {
           tablist: rootElement.querySelector('[data-tablist]'),
-          tabs: Array.from(rootElement.querySelectorAll(':scope > * > [data-tab]')),
-          panels: Array.from(rootElement.querySelectorAll(':scope > [data-panel]'))
+          tabs: rootElement.querySelectorAll(':scope > * > [data-tab]'),
+          panels: rootElement.querySelectorAll(':scope > [data-panel]')
         };
         this.listeners = {
           tabClick: addEventListener(rootElement, 'click', this.handleTabClick.bind(this)),
@@ -1773,8 +1662,8 @@
         if (tabs.includes(event.target)) {
           var tabNumber = tabs.indexOf(event.target);
           var _getSchema$call = getSchema.call(this),
-            eventHandlers = _getSchema$call.eventHandlers;
-          eventHandlers.tabs[tabNumber].click(event);
+            handlers = _getSchema$call.handlers;
+          handlers.tabs[tabNumber].click(event);
         }
       }
     }, {
@@ -1786,8 +1675,8 @@
         if (tabs.includes(event.target)) {
           var tabNumber = tabs.indexOf(event.target);
           var _getSchema$call2 = getSchema.call(this),
-            eventHandlers = _getSchema$call2.eventHandlers;
-          eventHandlers.tabs[tabNumber].focus(event);
+            handlers = _getSchema$call2.handlers;
+          handlers.tabs[tabNumber].focus(event);
         }
       }
     }, {
@@ -1799,8 +1688,8 @@
         if (tabs.includes(event.target)) {
           var tabNumber = tabs.indexOf(event.target);
           var _getSchema$call3 = getSchema.call(this),
-            eventHandlers = _getSchema$call3.eventHandlers;
-          eventHandlers.tabs[tabNumber].keydown(event);
+            handlers = _getSchema$call3.handlers;
+          handlers.tabs[tabNumber].keydown(event);
         }
       }
     }, {
@@ -1811,36 +1700,30 @@
           tabs = _this$elements.tabs,
           panels = _this$elements.panels;
         var _getSchema$call4 = getSchema.call(this),
-          htmlAttributes = _getSchema$call4.htmlAttributes;
+          attributes = _getSchema$call4.attributes;
         if (!this.initialized) {
-          setAttributes(tablist, htmlAttributes.tablist);
+          setAttributes(tablist, attributes.tablist);
         }
 
         // istanbul ignore else
         if ('activeTab' in stateChanges) {
           tabs.forEach(function (tab, index) {
-            setAttributes(tab, htmlAttributes.tabs[index]);
+            setAttributes(tab, attributes.tabs[index]);
           });
           panels.forEach(function (panel, index) {
-            setAttributes(panel, htmlAttributes.panels[index]);
+            setAttributes(panel, attributes.panels[index]);
           });
         }
       }
     }], [{
       key: "stateTypes",
       get: function get() {
-        return {
-          activeTab: propTypesExports.number,
-          manual: propTypesExports.bool
-        };
+        return getStateTypes(options);
       }
     }, {
       key: "defaultState",
       get: function get() {
-        return {
-          activeTab: 0,
-          manual: false
-        };
+        return getDefaultState(options);
       }
     }]);
     return Tabs;
@@ -1858,7 +1741,7 @@
   initialize();
 
   exports.components = components;
-  exports.froyojs = index;
+  exports.froyojs = froyojs;
   exports.initialize = initialize;
 
 }));
