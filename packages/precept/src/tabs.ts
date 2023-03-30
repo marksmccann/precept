@@ -1,4 +1,6 @@
-export interface TabsSchemaOptions {
+import type { SchemaResult, SchemaOptions, Options } from './types';
+
+interface TabsSchemaOptions extends SchemaOptions {
     uniqueId: string;
     manual: boolean;
     activeTab: number;
@@ -8,7 +10,7 @@ export interface TabsSchemaOptions {
     focusOnTab(tabNumber: number): void;
 }
 
-export interface TabsSchemaResult {
+interface TabsSchemaResult extends SchemaResult {
     attributes: {
         tablist: {
             role: 'tablist';
@@ -18,19 +20,19 @@ export interface TabsSchemaResult {
             role: 'tab';
             id: string;
             'aria-controls': string;
-            'aria-selected': boolean;
+            'aria-selected': string;
         }>;
         panels: Array<{
             role: 'tabpanel';
             id: string;
             'aria-labelledby': string;
-            hidden: boolean | null;
+            hidden: string | null;
         }>;
     };
     handlers: {
         tabs: Array<{
             click(event: MouseEvent): void;
-            focus(event: KeyboardEvent): void;
+            focus(event: FocusEvent): void;
             keydown(event: KeyboardEvent): void;
         }>;
     };
@@ -45,11 +47,9 @@ export const options = {
         type: Number,
         default: 0,
     },
-};
+} satisfies Options;
 
-export const schema = function getTabsSchema(
-    schemaOptions: TabsSchemaOptions
-): TabsSchemaResult {
+export function schema(schemaOptions: TabsSchemaOptions): TabsSchemaResult {
     const {
         uniqueId,
         activeTab,
@@ -85,13 +85,13 @@ export const schema = function getTabsSchema(
                 role: 'tab',
                 id: `${uniqueId}-tab-${tabNumber}`,
                 'aria-controls': `${uniqueId}-panel-${tabNumber}`,
-                'aria-selected': activeTab === tabNumber,
+                'aria-selected': activeTab === tabNumber ? 'true' : 'false',
             })),
             panels: panelNumbers.map((panelNumber) => ({
                 role: 'tabpanel',
                 id: `${uniqueId}-panel-${panelNumber}`,
                 'aria-labelledby': `${uniqueId}-tab-${panelNumber}`,
-                hidden: activeTab === panelNumber ? null : true,
+                hidden: activeTab === panelNumber ? null : 'true',
             })),
         },
         handlers: {
@@ -123,4 +123,4 @@ export const schema = function getTabsSchema(
             })),
         },
     };
-};
+}

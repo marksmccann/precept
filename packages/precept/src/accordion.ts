@@ -1,4 +1,6 @@
-export interface AccordionSchemaOptions {
+import type { SchemaResult, SchemaOptions, Options } from './types';
+
+interface AccordionSchemaOptions extends SchemaOptions {
     uniqueId: string;
     expandedPanels: number[];
     totalHeaders: number;
@@ -9,12 +11,12 @@ export interface AccordionSchemaOptions {
     focusOnHeader(sectionNumber: number): void;
 }
 
-export interface AccordionSchemaResult {
+interface AccordionSchemaResult extends SchemaResult {
     attributes: {
         headers: Array<{
             type: 'button';
             id: string;
-            'aria-expanded': boolean;
+            'aria-expanded': string;
             'aria-controls': string;
         }>;
         panels: Array<{
@@ -45,9 +47,9 @@ export const options = {
         type: Boolean,
         default: false,
     },
-};
+} satisfies Options;
 
-export const schema = function getAccordionSchema(
+export function schema(
     schemaOptions: AccordionSchemaOptions
 ): AccordionSchemaResult {
     const {
@@ -98,7 +100,9 @@ export const schema = function getAccordionSchema(
                 type: 'button',
                 id: `${uniqueId}-header-${headerNumber}`,
                 'aria-controls': `${uniqueId}-panel-${headerNumber}`,
-                'aria-expanded': expandedPanels.includes(headerNumber),
+                'aria-expanded': expandedPanels.includes(headerNumber)
+                    ? 'true'
+                    : 'false',
             })),
             panels: panelNumbers.map((panelNumber) => ({
                 id: `${uniqueId}-panel-${panelNumber}`,
@@ -127,7 +131,7 @@ export const schema = function getAccordionSchema(
 
                     expandPanels(Array.from(expandedPanelSet));
                 },
-                keydown(event) {
+                keydown(event: KeyboardEvent) {
                     const lastHeader = totalHeaders - 1;
                     const nextHeader = headerNumber + 1;
                     const previousHeader = headerNumber - 1;
@@ -153,4 +157,4 @@ export const schema = function getAccordionSchema(
             })),
         },
     };
-};
+}

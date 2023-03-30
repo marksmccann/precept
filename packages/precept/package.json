@@ -4,7 +4,7 @@
     "description": "The universal UI component library",
     "main": "dist/lib/index.js",
     "module": "dist/es/index.js",
-    "types": "dist/types/index.js",
+    "types": "dist/types/index.d.ts",
     "scripts": {
         "prebuild": "npm run clean",
         "build": "tsc && tsc --module commonjs --outDir dist/lib",
